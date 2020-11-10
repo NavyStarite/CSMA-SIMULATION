@@ -1,16 +1,8 @@
-// possiblle states RTS SIFS DATA NAV ACK CTS
+// possiblle states RTS SIFS DATA NAV ACK
 
-parNon(){
-    var ParNon = Math.floor(Math.random() * 11)%2;
-    
-}
-
-
-
-
-
-var stateA="NAV";
-var stateB="NAV";
+var stateA="RTS";
+var stateB="RTS";
+// possiblle states  ocupadoA ocupadoB CTS 
 var statePA="CTS";
 
 
@@ -25,8 +17,8 @@ function SIFS(){
 function ACK(){
     
 }
-function CTS()){
-    
+function CTS(){
+  
 }
 function DATA(){
 
@@ -39,6 +31,17 @@ function NAV () {
 
 function compA () {
     console.log("Esta es la computadora A");
+    //checa el estado propio
+    if (stateA=="RTS") {
+      //checa el estado del punto de acceso
+      if(statePA=="CTS"){//punto de acceso disponible
+        //sendPackage
+      }
+      else if((statePA=="ocupadoB")){
+        //esperar tiempo + tiempo akeatortio y estado Nav
+        stateA="NAV";
+      }
+    }
 }
 
 function compB () {
@@ -94,6 +97,3 @@ Concurrent.Thread.create(PA);
                  ╙▓╢▓╢▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╖╓,
                      "╙╝╣▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒╣
 */
-function no(){
-    window.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=FLCqWUQdIZJdKilEyB8MS9kA", "_blank"); 
-}
